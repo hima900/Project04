@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP-программист</title>
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@6.0.0/dist/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body >
+
+<header>
+    <p>PHP-программист</p>
+</header>
+<main>
+    <div class="body">
+        <div class="input_group">
+            <div class="navigation">
+<nav id="navbar">
+  <ul class="navbar-items flexbox-col">
+    <li class="navbar-logo flexbox-left">
+      <a class="navbar-item-inner flexbox">
+        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 1438.88 1819.54">
+          <!-- رموز الأيقونة الجديدة -->
+          <polygon points="925.79 318.48 830.56 0 183.51 1384.12 510.41 1178.46 925.79 318.48"/>
+          <polygon points="1438.88 1663.28 1126.35 948.08 111.98 1586.26 0 1819.54 1020.91 1250.57 1123.78 1471.02 783.64 1663.28 1438.88 1663.28"/>
+        </svg>
+      </a>
+    </li>
+    <li class="navbar-item flexbox-left">
+      <a class="navbar-item-inner flexbox-left" href="/">
+        <div class="navbar-item-inner-icon-wrapper flexbox">
+            <i class="fas fa-home"></i>
+        </div>
+        <span class="link-text">Главная</span>
+      </a>
+    </li>
+    <li class="navbar-item flexbox-left">
+      <a class="navbar-item-inner flexbox-left" href="{% url 'demend' %}">
+        <div class="navbar-item-inner-icon-wrapper flexbox">
+            <i class="fas fa-chart-line"></i>
+        </div>
+        <span class="link-text">Востребованность</span>
+      </a>
+    </li>
+    <li class="navbar-item flexbox-left">
+      <a class="navbar-item-inner flexbox-left" style="color: #FFFFFF !important;" href={% url 'geography' %}>  
+        <div class="navbar-item-inner-icon-wrapper flexbox">
+          <!-- استخدام أيقونة مختلفة لـ "География" -->
+          <i class="fas fa-globe"></i>
+        </div>
+        <span class="link-text">География</span>
+      </a>
+    </li>
+    <li class="navbar-item flexbox-left">
+      <a class="navbar-item-inner flexbox-left" href={% url 'skills' %}>
+        <div class="navbar-item-inner-icon-wrapper flexbox">
+          <!-- استخدام أيقونة مختلفة لـ "Навыки" -->
+          <i class="fas fa-brain"></i>
+        </div>
+        <span class="link-text">Навыки</span>
+      </a>
+    </li>
+    <li class="navbar-item flexbox-left">
+      <a class="navbar-item-inner flexbox-left" href={% url 'lastVacancy' %}>
+        <div class="navbar-item-inner-icon-wrapper flexbox">
+            <i class="fas fa-briefcase"></i>
+        </div>
+        <span class="link-text">Последние вакансии</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+</div>
+<div class="home_text" style="top: 200px">
+    {% for data in context %}
+        <img class="demand_graph_1" src="{{ data.graph_salary_level_by_city.url }}"/>
+        <img class="demand_graph_2" src="{{ data.graph_vacancy_fraction_by_city.url }}"/>
+        <div class="tables">
+            {{ data.table|safe }}
+        </div>
+    {% endfor %}
+</div>
+</div>
+</div>
+</main>
+
+<footer style="top: 100%">
+   
+    
+<p>Шараф Ибрахим Наджи АТ-5</p>
+</footer>
+</body>
+</html>
